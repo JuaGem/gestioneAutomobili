@@ -4,8 +4,6 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -28,13 +26,8 @@ public class Automobile {
 	@Column(name = "dataImmatricolazione")
 	private Date dataImmatricolazione;
 
-	@Enumerated(EnumType.STRING)
-	private StatoUtente stato = StatoUtente.CREATO;
-
 	public Automobile() {
 	}
-	
-	
 	
 	public Automobile(String marca, String modello, Integer cilindrata, Date dataImmatricolazione) {
 		this.marca = marca;
@@ -50,7 +43,6 @@ public class Automobile {
 		this.modello = modello;
 		this.cilindrata = cilindrata;
 		this.dataImmatricolazione = dataImmatricolazione;
-		this.stato = stato;
 	}
 
 	public Long getId() {
@@ -91,14 +83,6 @@ public class Automobile {
 
 	public void setDataImmatricolazione(Date dataImmatricolazione) {
 		this.dataImmatricolazione = dataImmatricolazione;
-	}
-
-	public StatoUtente getStato() {
-		return stato;
-	}
-
-	public void setStato(StatoUtente stato) {
-		this.stato = stato;
 	}
 
 }

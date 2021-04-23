@@ -1,5 +1,6 @@
 package it.prova.gestioneautomobililogin.dao;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -17,7 +18,7 @@ public class AutomobileDaoImpl implements IAutomobileDAO {
 	
 	@Override
 	public List<Automobile> list() throws Exception {
-		return entityManager.createQuery("from Utente",Automobile.class).getResultList();
+		return entityManager.createQuery("from Automobile",Automobile.class).getResultList();
 	}
 	
 	@Override
@@ -56,7 +57,7 @@ public class AutomobileDaoImpl implements IAutomobileDAO {
 
         String query = "select a from Automobile a where 1=1 ";
         if (example.getMarca() != null && !example.getMarca().equals("")) {
-            query += " and a.marca='" + example.getMarca() + "' ";
+            query += " and a.marca like '%" + example.getMarca() + "%' ";
         }
         if (example.getModello() != null && !example.getModello().equals("")) {
             query += " and a.modello='" + example.getModello() + "' ";
@@ -66,9 +67,9 @@ public class AutomobileDaoImpl implements IAutomobileDAO {
             query += " and a.cilindrata='" + example.getCilindrata() + "' ";
         }
 
-        if (example.getDataImmatricolazione() != null && !example.getDataImmatricolazione().equals(null)) {
-            java.sql.Date data = new java.sql.Date(example.getDataImmatricolazione().getTime());
-            query += " and a.data_immatricolazione='" + data + "' ";
+        if (example.getDataImmatricolazione() != null ) {
+        	
+            query += " and a.dataImmatricolazione >='" + new SimpleDateFormat("yyyy-MM-dd").format(example.getDataImmatricolazione()) + "' ";
         }
 
         TypedQuery<Automobile> tquery = entityManager.createQuery(query, Automobile.class);

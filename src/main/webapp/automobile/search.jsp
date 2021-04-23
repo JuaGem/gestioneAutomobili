@@ -2,10 +2,10 @@
 <html lang="it">
   <head>
     
-    <jsp:include page="./header.jsp" />
+    <jsp:include page="../header.jsp" />
     
     <!-- Custom styles for this template -->
-    <link href="./assets/css/global.css" rel="stylesheet">
+    <link href="../assets/css/global.css" rel="stylesheet">
     <style type="text/css">
     	body {
 		  padding-top: 3.5rem;
@@ -16,7 +16,7 @@
   </head>
   <body>
   
-	<jsp:include page="./navbar.jsp"></jsp:include>
+	<jsp:include page="../navbar.jsp"></jsp:include>
   
   
 	<main role="main">
@@ -74,6 +74,6 @@
 		</div>	
 	</main>
 	
-	<jsp:include page="./footer.jsp" />
+	<jsp:include page="../footer.jsp" />
   </body>
 </html>

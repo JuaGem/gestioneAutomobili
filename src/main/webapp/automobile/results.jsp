@@ -4,7 +4,7 @@
 <!doctype html>
 <html lang="it">
 <head>
-	<jsp:include page="./header.jsp" />
+	<jsp:include page="../header.jsp" />
 	<title>Pagina dei risultati</title>
 	
 	<!-- style per le pagine diverse dalla index -->
@@ -12,7 +12,7 @@
     
 </head>
 <body>
-	<jsp:include page="./navbar.jsp" />
+	<jsp:include page="../navbar.jsp" />
 	
 	<main role="main" class="container">
 	
@@ -69,9 +69,9 @@
 		                        <td><fmt:formatDate type="date" pattern="dd/MM/yyy" value="${auto_da_lista.dataImmatricolazione}"/></td>
 		                        
 		                        <td>
-									<a class="btn  btn-sm btn-outline-secondary" href="ExecuteVisualizzaAutomobileServlet?idLibro=<c:out value="${auto_da_lista.id}"/>">Visualizza</a>
-									<a class="btn  btn-sm btn-outline-primary ml-2 mr-2" href="PrepareModificaAutomobileServlet?idLibro=<c:out value="${auto_da_lista.id}"/>">Edit</a>
-									<a class="btn btn-outline-danger btn-sm" href="PrepareDeleteAutomobileServlet?idLibro=<c:out value="${auto_da_lista.id}"/>">Delete</a>
+									<a class="btn  btn-sm btn-outline-secondary" href="VisualizzaAutomobileServlet?idAutomobile=<c:out value="${auto_da_lista.id}"/>">Visualizza</a>
+									<a class="btn  btn-sm btn-outline-primary ml-2 mr-2" href="PrepareModificaAutomobileServlet?idAutomobile=<c:out value="${auto_da_lista.id}"/>">Edit</a>
+									<a class="btn btn-outline-danger btn-sm" href="PrepareDeleteAutomobileServlet?idAutomobile=<c:out value="${auto_da_lista.id}"/>">Delete</a>
 								</td>
 		                    </tr>
 		                    </c:forEach>
@@ -85,7 +85,7 @@
 	
 	<!-- end container -->	
 	</main>
-	<jsp:include page="./footer.jsp" />
+	<jsp:include page="../footer.jsp" />
 	
 </body>
 </html>

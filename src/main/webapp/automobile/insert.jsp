@@ -1,7 +1,9 @@
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!doctype html>
 <html lang="it">
 <head>
 	<jsp:include page="../header.jsp" />
+	<meta charset="ISO-8859-1">
 	<title>Inserisci nuovo</title>
 	
 	<!-- style per le pagine diverse dalla index -->
@@ -33,24 +35,25 @@
 						<div class="form-row">
 							<div class="form-group col-md-6">
 								<label>Marca  </label>
-								<input type="text" name="marca" id="marca" class="form-control" placeholder="Inserire la marca" required>
+								<input type="text" name="marca" id="marca" class="form-control" value="${automobileDaInserire.marca}" placeholder="Inserire la marca" required>
 							</div>
 							
 							<div class="form-group col-md-6">
 								<label>Modello </label>
-								<input type="text" name="modello" id="modello" class="form-control" placeholder="Inserire il modello" required>
+								<input type="text" name="modello" id="modello" class="form-control" value="${automobileDaInserire.modello}"  placeholder="Inserire il modello" required>
 							</div>
 						</div>
 						
 						<div class="form-row">	
 							<div class="form-group col-md-6">
 								<label>Cilindrata </label>
-								<input type="number" class="form-control" name="cilindrata" id="cilindrata" placeholder="Inserire la cilindrata" required>
+								<input type="number" class="form-control" name="cilindrata" id="cilindrata" value="${automobileDaInserire.cilindrata}" placeholder="Inserire la cilindrata" required>
 							</div>
 							<div class="form-group col-md-3">
+								<fmt:formatDate type="date" pattern="yyyy-MM-dd" value="${automobileDaInserire.dataImmatricolazione}" var="dataImmParsed"/>
 								<label>Data di Immatricolazione</label>
                         		<input class="form-control" id="dataImmatricolazione" type="date" placeholder="dd/MM/yy"
-                            		title="formato : gg/mm/aaaa"  name="dataImmatricolazione" required>
+                            		title="formato : gg/mm/aaaa" value="${dataImmParsed}" name="dataImmatricolazione" required>
 							</div>
 							
 						</div>
